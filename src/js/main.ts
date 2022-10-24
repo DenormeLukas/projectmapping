@@ -1,25 +1,41 @@
-const init = () => {
+import 'phaser';
+
+const config = {
+  type: Phaser.WEBGL,
+  parent: 'phaser-example',
+  width: 1920,
+  height: 1080,
+  scene: {
+    preload: preload,
+    create: create,
+    update: update
+  }
+};
+
+let sprite;
+
+let game = new Phaser.Game(config);
+
+function preload() {
+
+  //Background image
+  this.load.image('background', 'assets/building-template.png');
+
+  //Sprite
+  this.load.image('shadow', 'assets/shadow.png');
 
 }
 
-const update = (e) => {
-  let x = e.clientX
-  let y = e.clientY
+function create() {
 
-  document.documentElement.style.setProperty('--cursorX', x + 'px')
-  document.documentElement.style.setProperty('--cursorY', y + 'px')
+  this.add.image(0, 0, 'background').setOrigin(0, 0);
+
+  sprite = this.add.sprite(70, 910, 'shadow');
+  sprite.scale = 0.1;
 }
 
-const $shadow = document.getElementById('shadow-person');
-window.addEventListener('mousemove', (e) => {
-  // Makes shadow follow cursor
-  let left = e.offsetX;
+function update() {
 
-  $shadow.style.left = left + 'px';
-});
 
-document.addEventListener('mousemove',update);
-document.addEventListener('touchmove',update);
 
-init()
-postMessage({ payload: 'removeLoading' }, '*')
+}

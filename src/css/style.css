@@ -14,37 +14,3 @@ body {
   width: 1920px;
   height: 1080px;
 }
-
-.shadow {
-  z-index: 1;
-  position: absolute;
-  width: 10rem;
-  top: 780px; /* 780 -- absolute / -300 -- relative*/
-  transition: left 3s;
-  margin-left: -80px;
-  left: 0;
-}
-
-/* Flashlight Overlay */
-
-:root {
-  z-index: 999;
-  cursor: none;
-  --cursorX: 50vw;
-  --cursorY: 50vh;
-  position: absolute;
-}
-
-:root:before {
-  z-index: 999;
-  content: '';
-  display: block;
-  width: 1920px;
-  height: 1080px;
-  position: absolute;
-  pointer-events: none;
-  background: radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY),
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, .5) 80%,
-      rgba(0, 0, 0, .8) 100%)
-}
