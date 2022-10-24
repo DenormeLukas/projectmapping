@@ -21,7 +21,7 @@ body {
   width: 10rem;
   top: 780px; /* 780 -- absolute / -300 -- relative*/
   transition: left 3s;
-  margin-left: -250px;
+  margin-left: -80px;
   left: 0;
 }
 
