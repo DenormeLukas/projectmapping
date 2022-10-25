@@ -142,7 +142,7 @@ function update() {
   if (game.input.mousePointer.x > 1120 && game.input.mousePointer.x < 1225 &&
     game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
     if (sprite.x > 1120 && sprite.x < 1225) {
-      let rTest = this.add.rectangle(1120, 750, 105, 210);
+      let rTest = this.add.rectangle(1120, 750, 105, 210, 0x6666ff);
     }
   }
 
@@ -150,7 +150,7 @@ function update() {
   if (game.input.mousePointer.x > 1335 && game.input.mousePointer.x < 1440 &&
     game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
     if (sprite.x > 1335 && sprite.x < 1440) {
-      let rTest = this.add.rectangle(1335, 750, 105, 210);
+      let rTest = this.add.rectangle(1335, 750, 105, 210, 0x6666ff);
     }
   }
 
@@ -158,7 +158,7 @@ function update() {
   if (game.input.mousePointer.x > 1535 && game.input.mousePointer.x < 1640 &&
     game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
     if (sprite.x > 1535 && sprite.x < 1640) {
-      let rTest = this.add.rectangle(1535, 750, 110, 210);
+      let rTest = this.add.rectangle(1535, 750, 110, 210, 0x6666ff);
     }
   }
 
@@ -166,7 +166,7 @@ function update() {
   if (game.input.mousePointer.x > 1738 && game.input.mousePointer.x < 1843 &&
     game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
     if (sprite.x > 1738 && sprite.x < 1843) {
-      let rTest = this.add.rectangle(1738, 750, 110, 210);
+      let rTest = this.add.rectangle(1738, 750, 110, 210, 0x6666ff);
     }
   }
 }
