@@ -106,5 +106,10 @@ function update() {
   //Move shadow to cursor, 150 speed
   this.physics.moveTo(sprite, game.input.mousePointer.x, 965, 150);
 
-
+  if (game.input.mousePointer.x > 483 && game.input.mousePointer.x < 613 &&
+    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 1000) {
+    if (sprite.x > 483 && sprite.x < 613) {
+      let rTest = this.add.rectangle(0, 1000, 150, 650, 0x6666ff);
+    }
+  }
 }
