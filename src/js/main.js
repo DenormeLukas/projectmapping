@@ -105,68 +105,90 @@ function update() {
 
   //Move shadow to cursor, 150 speed
   this.physics.moveTo(sprite, game.input.mousePointer.x, 965, 150);
+  let count = 8;
+  let xStart = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
+  let xEnd = [185, 385, 582, 805, 1225, 1440, 1640, 1843];
+  let colors = [0xff0000, 0x00ff00, 0x0000ff, 0xff00f0, 0x0fff00, 0x00ffff, 0xff00ff, 0x6666ff];
 
-  // Window 1
-  if (game.input.mousePointer.x > 80 && game.input.mousePointer.x < 185 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 80 && sprite.x < 185) {
-      let rTest = this.add.rectangle(80, 750, 105, 210, 0xff0000);
+  for (let i = 0; i < count; i++) {
+    if (game.input.mousePointer.x > xStart[i] && game.input.mousePointer.x < xEnd[i] &&
+      game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+      if (sprite.x > xStart[i] && sprite.x < xEnd[i]) {
+        let rTest = this.add.rectangle(xStart[i], 750, 105, 210, colors[i]);
+      }
     }
   }
 
-  // Window 2
-  if (game.input.mousePointer.x > 280 && game.input.mousePointer.x < 385 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 280 && sprite.x < 385) {
-      let rTest = this.add.rectangle(280, 750, 105, 210, 0x00ff00);
-    }
-  }
+  // 1 80 - 185
+  // 2 280 - 385
+  // 3 477 - 582
+  // 4 700 - 805
+  // 5 1120 - 1225
+  // 6 1335 - 1440
+  // 7 1535 - 1640
+  // 8 1738 - 1843
 
-  // Window 3
-  if (game.input.mousePointer.x > 477 && game.input.mousePointer.x < 582 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 477 && sprite.x < 582) {
-      let rTest = this.add.rectangle(477, 750, 105, 210, 0x0000ff);
-    }
-  }
+  // // Window 1
+  // if (game.input.mousePointer.x > 80 && game.input.mousePointer.x < 185 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 80 && sprite.x < 185) {
+  //     let rTest = this.add.rectangle(80, 750, 105, 210, 0xff0000);
+  //   }
+  // }
 
-  // Window 4
-  if (game.input.mousePointer.x > 700 && game.input.mousePointer.x < 805 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 700 && sprite.x < 805) {
-      let rTest = this.add.rectangle(700, 750, 105, 210, 0xff00f0);
-    }
-  }
+  // // Window 2
+  // if (game.input.mousePointer.x > 280 && game.input.mousePointer.x < 385 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 280 && sprite.x < 385) {
+  //     let rTest = this.add.rectangle(280, 750, 105, 210, 0x00ff00);
+  //   }
+  // }
 
-  // Window 5
-  if (game.input.mousePointer.x > 1120 && game.input.mousePointer.x < 1225 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 1120 && sprite.x < 1225) {
-      let rTest = this.add.rectangle(1120, 750, 105, 210, 0x0fff00);
-    }
-  }
+  // // Window 3
+  // if (game.input.mousePointer.x > 477 && game.input.mousePointer.x < 582 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 477 && sprite.x < 582) {
+  //     let rTest = this.add.rectangle(477, 750, 105, 210, 0x0000ff);
+  //   }
+  // }
 
-  // Window 6
-  if (game.input.mousePointer.x > 1335 && game.input.mousePointer.x < 1440 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 1335 && sprite.x < 1440) {
-      let rTest = this.add.rectangle(1335, 750, 105, 210, 0x00ffff);
-    }
-  }
+  // // Window 4
+  // if (game.input.mousePointer.x > 700 && game.input.mousePointer.x < 805 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 700 && sprite.x < 805) {
+  //     let rTest = this.add.rectangle(700, 750, 105, 210, 0xff00f0);
+  //   }
+  // }
 
-  // Window 7
-  if (game.input.mousePointer.x > 1535 && game.input.mousePointer.x < 1640 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 1535 && sprite.x < 1640) {
-      let rTest = this.add.rectangle(1535, 750, 110, 210, 0xff00ff);
-    }
-  }
+  // // Window 5
+  // if (game.input.mousePointer.x > 1120 && game.input.mousePointer.x < 1225 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 1120 && sprite.x < 1225) {
+  //     let rTest = this.add.rectangle(1120, 750, 105, 210, 0x0fff00);
+  //   }
+  // }
 
-  // Window 8
-  if (game.input.mousePointer.x > 1738 && game.input.mousePointer.x < 1843 &&
-    game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-    if (sprite.x > 1738 && sprite.x < 1843) {
-      let rTest = this.add.rectangle(1738, 750, 110, 210, 0x6666ff);
-    }
-  }
+  // // Window 6
+  // if (game.input.mousePointer.x > 1335 && game.input.mousePointer.x < 1440 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 1335 && sprite.x < 1440) {
+  //     let rTest = this.add.rectangle(1335, 750, 105, 210, 0x00ffff);
+  //   }
+  // }
+
+  // // Window 7
+  // if (game.input.mousePointer.x > 1535 && game.input.mousePointer.x < 1640 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 1535 && sprite.x < 1640) {
+  //     let rTest = this.add.rectangle(1535, 750, 110, 210, 0xff00ff);
+  //   }
+  // }
+
+  // // Window 8
+  // if (game.input.mousePointer.x > 1738 && game.input.mousePointer.x < 1843 &&
+  //   game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
+  //   if (sprite.x > 1738 && sprite.x < 1843) {
+  //     let rTest = this.add.rectangle(1738, 750, 110, 210, 0x6666ff);
+  //   }
+  // }
 }
