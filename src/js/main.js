@@ -16,7 +16,7 @@ const config = {
 
 const game = new Phaser.Game(config);
 
-let sprite;
+let sprite, sprite2;
 let light;
 let offsets = [];
 
@@ -25,8 +25,11 @@ function preload() {
   //Background image
   this.load.image('background', 'assets/building-template.png');
 
+  //Neon image
+  this.load.image('neon', 'assets/neon.png');
+
   //Sprite
-  this.load.image('shadow', 'assets/shadow.png');
+  this.load.image('shadow', 'assets/spritesheet.png');
 
 }
 
@@ -35,14 +38,17 @@ function create() {
   //Background-image
   const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
 
+  //Neon-image
+  const neon = this.add.image(0, 0, 'neon').setOrigin(0, 0);
+
   //Shadowman
-  sprite = this.physics.add.sprite(70, 910, 'shadow');
+  sprite = this.physics.add.sprite(1000, 910, 'shadow');
   sprite.setCollideWorldBounds(true);
-  sprite.scale = 0.1;
+  sprite.scale = 0.125;
 
 
   //Lights
-  light = this.lights.addLight(0, 0, 400).setScrollFactor(0.0).setIntensity(5);
+  light = this.lights.addLight(0, 0, 300).setScrollFactor(0.0).setIntensity(4);
 
   this.lights.enable().setAmbientColor(0x555555);
 
@@ -83,20 +89,7 @@ function create() {
 
   sprite.setMask(mask);
 
-
-  // //Window touched
-
-  // const w1 = this.physics.add.rectangle(135, 855, 105, 210, 0xffffff, 1);
-
-  // this.physics.add.overlap(sprite, w1, wasTouched);
-
 }
-
-// function wasTouched() {
-
-//   const v1 = this.add.rectangle(135, 855, 105, 210, 0xff0000);
-
-// }
 
 function update() {
 
@@ -113,7 +106,5 @@ function update() {
 
   //Move shadow to cursor, 150 speed
   this.physics.moveTo(sprite, game.input.mousePointer.x, 910, 150);
-
-
 
 }

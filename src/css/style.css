@@ -1,9 +1,15 @@
 @import url('normalize.css');
 
+* {
+
+    cursor: none;
+
+
+}
+
 body {
   background-color: grey;
   color: white;
-  cursor: none;
 }
 
 #building-template {
