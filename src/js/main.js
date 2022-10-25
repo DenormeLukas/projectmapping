@@ -29,7 +29,7 @@ function preload() {
   this.load.image('neon', 'assets/neon.png');
 
   //Sprite
-  this.load.image('shadow', 'assets/spritesheet.png');
+  this.load.image('shadow', 'assets/man.png');
 
 }
 
@@ -42,9 +42,9 @@ function create() {
   const neon = this.add.image(0, 0, 'neon').setOrigin(0, 0);
 
   //Shadowman
-  sprite = this.physics.add.sprite(1000, 910, 'shadow');
+  sprite = this.physics.add.sprite(1000, 965, 'shadow');
   sprite.setCollideWorldBounds(true);
-  sprite.scale = 0.125;
+  sprite.scale = 0.20;
 
 
   //Lights
@@ -62,7 +62,6 @@ function create() {
   let scene = this;
 
   offsets = [Math.random() + 1 - 2, Math.random() + 1 - 2, Math.random() + 1 - 2, Math.random() + 1 - 2];
-
 
   //Mask
   const shape = this.make.graphics();
@@ -105,6 +104,7 @@ function update() {
   });
 
   //Move shadow to cursor, 150 speed
-  this.physics.moveTo(sprite, game.input.mousePointer.x, 910, 150);
+  this.physics.moveTo(sprite, game.input.mousePointer.x, 965, 150);
+
 
 }
