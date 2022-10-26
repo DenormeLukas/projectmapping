@@ -2,6 +2,7 @@ let sprite;
 let light;
 let offsets = [];
 let arrowKeys;
+let frames = [];
 
 class Game extends Phaser.Scene {
 
@@ -24,14 +25,55 @@ class Game extends Phaser.Scene {
             frameWidth: 184,
             frameHeight: 288
         });
+
+        //Window 1
+
+        for (let i = 0; i <= 143; i++) {
+
+            if (i < 10) {
+
+                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_0000' + i + '.png');
+
+            } else if (100 > i >= 10) {
+
+                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_000' + i + '.png');
+
+            } else if (i >= 100) {
+
+                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_00' + i + '.png');
+
+            }
+
+        }
+
     }
+
 
     create() {
 
+        //Window 1
+        const window1 = this.add.sprite(500, 500, 'window0');
+
+        for (let i = 0; i <= 143; i++) {
+
+            let temp = { key: 'frame' + i };
+            frames.push(temp);
+
+        }
+
+        console.log(frames);
+
+        window1.anims.create({
+            key: 'windowAnimation',
+            frames: frames,
+            frameRate: 12.5,
+            repeat: 1
+        });
+
+        window1.play('windowAnimation');
+
         //Background-image
         const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
-
-
 
         //Shadowman
         sprite = this.physics.add.sprite(100, 965, "shadow");
@@ -41,7 +83,7 @@ class Game extends Phaser.Scene {
             key: "shadowAnimation",
             frames: this.anims.generateFrameNumbers("shadow", {
                 start: 0,
-                end: 14,
+                end: 7,
                 first: 0
             }),
             frameRate: 12.5,
@@ -134,7 +176,6 @@ class Game extends Phaser.Scene {
         } else if (this.input.mousePointer.x < sprite.x) {
             sprite.flipX = true;
         }
-
 
         let count = 8;
         let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
