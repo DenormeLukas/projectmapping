@@ -61,7 +61,7 @@ class Game extends Phaser.Scene {
 
         }
 
-        // console.log(frames);
+        console.log(frames);
 
         window1.anims.create({
             key: 'windowAnimation',
