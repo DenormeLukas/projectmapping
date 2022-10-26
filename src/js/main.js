@@ -110,7 +110,6 @@ function update() {
   let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
   let xEnd = [185, 385, 582, 805, 1225, 1440, 1640, 1843];
   let colors = [0xff0000, 0x00ff00, 0x0000ff, 0xff00f0, 0x0fff00, 0x00ffff, 0xff00ff, 0x6666ff];
-  console.log(sprite.x);
 
   for (let i = 0; i < count; i++) {
     if (game.input.mousePointer.x > xShow[i] && game.input.mousePointer.x < xEnd[i] &&
