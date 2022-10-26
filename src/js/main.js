@@ -16,7 +16,7 @@ const config = {
 
 const game = new Phaser.Game(config);
 
-let sprite, sprite2;
+let sprite;
 let light;
 let offsets = [];
 
@@ -29,8 +29,12 @@ function preload() {
   this.load.image('neon', 'assets/neon.png');
 
   //Sprite
-  this.load.image('shadow', 'assets/man.png');
+  // this.load.image("shadow", 'assets/spritesheet.png');
 
+  this.load.spritesheet("shadow", "assets/spritesheet.png", {
+    frameWidth: 184,
+    frameHeight: 288
+  });
 }
 
 function create() {
@@ -42,9 +46,25 @@ function create() {
   const neon = this.add.image(0, 0, 'neon').setOrigin(0, 0);
 
   //Shadowman
-  sprite = this.physics.add.sprite(1000, 965, 'shadow');
-  sprite.setCollideWorldBounds(true);
-  sprite.scale = 0.20;
+  sprite = this.physics.add.sprite(100, 965, "shadow");
+  sprite.scale = 0.75;
+
+  const config = {
+    key: "shadowAnimation",
+    frames: this.anims.generateFrameNumbers("shadow", {
+      start: 0,
+      end: 14,
+      first: 0
+    }),
+    frameRate: 12.5,
+    repeat: -1
+  };
+
+  sprite.anims.create(config);
+
+  // sprite = this.physics.add.sprite(1000, 965, 'shadow');
+  // sprite.setCollideWorldBounds(true);
+  // sprite.scale = 0.4;
 
 
   //Lights
@@ -88,7 +108,10 @@ function create() {
 
   sprite.setMask(mask);
 
+  sprite.play("shadowAnimation");
+
 }
+
 
 function update() {
 
@@ -105,6 +128,14 @@ function update() {
 
   //Move shadow to cursor, 150 speed
   this.physics.moveTo(sprite, game.input.mousePointer.x, 965, 150);
+
+  if (game.input.mousePointer.x > sprite.x) {
+    sprite.flipX = false;
+  } else if (game.input.mousePointer.x < sprite.x) {
+    sprite.flipX = true;
+  }
+
+
   let count = 8;
   let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
   let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
