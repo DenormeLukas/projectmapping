@@ -158,7 +158,7 @@ function update() {
 
   for (let i = 0; i < count; i++) {
     if (game.input.mousePointer.x > xShow[i] && game.input.mousePointer.x < xEnd[i] &&
-      game.input.mousePointer.y > 600 && game.input.mousePointer.y < 960) {
+      game.input.mousePointer.y > 725 && game.input.mousePointer.y < 960) {
       if (sprite.x > xShow[i] && sprite.x < xEnd[i]) {
         let rTest = this.add.rectangle(xStart[i], 847.5, 104.5, 237.5, colors[i]);
       }
