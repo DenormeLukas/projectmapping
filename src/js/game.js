@@ -54,6 +54,8 @@ class Game extends Phaser.Scene {
         // sprite.setCollideWorldBounds(true);
         // sprite.scale = 0.4;
 
+        // Disable menu when right clicking
+        this.input.mouse.disableContextMenu();
 
         //Lights
         light = this.lights.addLight(0, 0, 300).setScrollFactor(0.0).setIntensity(4);
@@ -135,7 +137,6 @@ class Game extends Phaser.Scene {
             sprite.flipX = true;
         }
 
-
         let count = 8;
         let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
         let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
@@ -159,8 +160,17 @@ class Game extends Phaser.Scene {
         if (arrowKeys.down.isDown) {
             console.log("down");
         }
-    }
 
+        // changes colors on scroll --- maybe handy --- maybe not
+        this.input.on('wheel', function (color) {
+            let r = Math.floor(Math.random() * 4);
+            let g = Math.floor(Math.random() * 4);
+            let b = Math.floor(Math.random() * 4);
+            light.color._rgb[0] = r;
+            light.color._rgb[1] = g;
+            light.color._rgb[2] = b;
+        });
+    }
 }
 
 export default Game;
