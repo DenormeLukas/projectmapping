@@ -29,21 +29,8 @@ class Game extends Phaser.Scene {
         //Window 1
 
         for (let i = 0; i <= 143; i++) {
-
-            if (i < 10) {
-
-                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_0000' + i + '.png');
-
-            } else if (100 > i >= 10) {
-
-                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_000' + i + '.png');
-
-            } else if (i >= 100) {
-
-                this.load.image('frame' + i, 'assets/window1-sequence/windowbig_00' + i + '.png');
-
-            }
-
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('frame' + i, 'assets/window1-sequence/windowbig_' + nr + '.png');
         }
 
     }
@@ -51,8 +38,8 @@ class Game extends Phaser.Scene {
 
     create() {
 
-        //Window 1
-        const window1 = this.add.sprite(500, 500, 'window0');
+        //Background-image
+        const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
 
         for (let i = 0; i <= 143; i++) {
 
@@ -61,19 +48,17 @@ class Game extends Phaser.Scene {
 
         }
 
-        console.log(frames);
-
-        window1.anims.create({
+        this.anims.create({
             key: 'windowAnimation',
             frames: frames,
-            frameRate: 12.5,
-            repeat: 1
+            frameRate: 10,
+            repeat: -1
         });
 
-        window1.play('windowAnimation');
+        //Window 1
+        const window1 = this.add.sprite(500, 500, 'frame0').play('windowAnimation');
 
-        //Background-image
-        const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
+        // window1.play('windowAnimation');
 
         //Shadowman
         sprite = this.physics.add.sprite(100, 965, "shadow");

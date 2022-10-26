@@ -27,5 +27,5 @@ function startGame() {
 
 }
 
-setTimeout(startGame, 8500);
+setTimeout(startGame, 500);
 
