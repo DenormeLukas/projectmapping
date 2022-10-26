@@ -106,15 +106,17 @@ function update() {
   //Move shadow to cursor, 150 speed
   this.physics.moveTo(sprite, game.input.mousePointer.x, 965, 150);
   let count = 8;
-  let xStart = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
+  let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
+  let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
   let xEnd = [185, 385, 582, 805, 1225, 1440, 1640, 1843];
   let colors = [0xff0000, 0x00ff00, 0x0000ff, 0xff00f0, 0x0fff00, 0x00ffff, 0xff00ff, 0x6666ff];
+  console.log(sprite.x);
 
   for (let i = 0; i < count; i++) {
-    if (game.input.mousePointer.x > xStart[i] && game.input.mousePointer.x < xEnd[i] &&
-      game.input.mousePointer.y > 750 && game.input.mousePointer.y < 960) {
-      if (sprite.x > xStart[i] && sprite.x < xEnd[i]) {
-        let rTest = this.add.rectangle(xStart[i], 750, 105, 210, colors[i]);
+    if (game.input.mousePointer.x > xShow[i] && game.input.mousePointer.x < xEnd[i] &&
+      game.input.mousePointer.y > 600 && game.input.mousePointer.y < 960) {
+      if (sprite.x > xShow[i] && sprite.x < xEnd[i]) {
+        let rTest = this.add.rectangle(xStart[i], 847.5, 104.5, 237.5, colors[i]);
       }
     }
   }
