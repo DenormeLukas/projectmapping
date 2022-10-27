@@ -14,9 +14,9 @@ class Outro extends Phaser.Scene {
         const outro = this.add.video(0, 0, 'outro').setOrigin(0, 0);
         outro.play();
 
-        // if (outro.getDuration() == outro.getProgress()) {
-        //     eventsCenter.emit('restart', true);
-        // }
+        if (outro.getDuration() == outro.getProgress()) {
+            eventsCenter.emit('restart', true);
+        }
 
     }
 
