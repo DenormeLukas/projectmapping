@@ -1,9 +1,13 @@
 let sprite;
+let window2;
 let light;
 let offsets = [];
 let arrowKeys;
+
+//Frames
 let lightFrames = [];
 let window1Frames = [];
+let window2Frames = [];
 
 let count = 8;
 let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
@@ -42,6 +46,13 @@ class Game extends Phaser.Scene {
             this.load.image('window1frame' + i, 'assets/window1-sequence/windowbig_' + nr + '.png');
         }
 
+        //Window 2
+
+        for (let i = 0; i <= 261; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('window2frame' + i, 'assets/window2-sequence/poesje _' + nr + '.png');
+        }
+
         //Loop Top
 
         for (let i = 0; i <= 226; i++) {
@@ -69,7 +80,7 @@ class Game extends Phaser.Scene {
         this.anims.create({
             key: 'window1Animation',
             frames: window1Frames,
-            frameRate: 10,
+            frameRate: 25,
             repeat: -1
         });
 
@@ -77,6 +88,23 @@ class Game extends Phaser.Scene {
 
         // window1.play('windowAnimation');
 
+        //Window 2
+
+        for (let i = 0; i <= 261; i++) {
+
+            let temp = { key: 'window2frame' + i };
+            window2Frames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'window2Animation',
+            frames: window2Frames,
+            frameRate: 25,
+            repeat: 0
+        });
+
+        window2 = this.add.sprite(130, 845, 'window2frame0');
 
         //Lights up top
 
@@ -208,6 +236,14 @@ class Game extends Phaser.Scene {
 
         if (arrowKeys.down.isDown) {
             console.log("down");
+        }
+
+        // Window 1
+        if (this.input.mousePointer.x > 80 && this.input.mousePointer.x < 185 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 80 && sprite.x < 185) {
+                window2.play('window2Animation');
+            }
         }
 
         // changes colors on scroll --- maybe handy --- maybe not
