@@ -29,10 +29,24 @@ function startGame() {
 
 }
 
+setTimeout(startGame, 500);
+
 eventsCenter.on('playOutro', function () {
   game.scene.add('Outro', outro);
   game.scene.start('Outro');
 });
 
-setTimeout(startGame, 500);
+function restartGame() {
+
+  this.registry.destroy(); // destroy registry
+  this.events.off(); // disable all active events
+  this.scene.restart(); // restart current scene
+
+}
+
+eventsCenter.on('restart', restartGame);
+
+
+
+
 
