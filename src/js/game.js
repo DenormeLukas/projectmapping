@@ -332,7 +332,7 @@ class Game extends Phaser.Scene {
         });
 
         //Move shadow to cursor, 150 speed
-        this.physics.moveTo(sprite, this.input.mousePointer.x, 955, 150);
+        this.physics.moveTo(sprite, this.input.mousePointer.x, 955, 200);
 
         if (this.input.mousePointer.x > sprite.x) {
             sprite.flipX = false;
@@ -360,7 +360,7 @@ class Game extends Phaser.Scene {
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true
-                    }, 6000);
+                    }, 5000);
                     amount++;
                 }
 
@@ -378,7 +378,7 @@ class Game extends Phaser.Scene {
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true
-                    }, 3000);
+                    }, 6000);
                     amount++;
                 }
 
@@ -468,7 +468,7 @@ class Game extends Phaser.Scene {
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true
-                    }, 6000);
+                    }, 3000);
                     amount++;
                 }
 
