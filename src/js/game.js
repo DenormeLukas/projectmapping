@@ -4,9 +4,6 @@ let light;
 let offsets = [];
 let arrowKeys;
 let once, once2, once3, once4, once5, once6, once7, once8 = false;
-
-let amount = 0;
-
 //Frames
 let lightFrames = [];
 let window1Frames = [];

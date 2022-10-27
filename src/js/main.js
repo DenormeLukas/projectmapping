@@ -5,6 +5,8 @@ import Game from './game';
 const intro = new Intro();
 const game2 = new Game();
 
+let amount = 0;
+
 const config = {
   type: Phaser.AUTO,
   width: 1920,
