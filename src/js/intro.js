@@ -9,8 +9,10 @@ class Intro extends Phaser.Scene {
     }
 
     create() {
+
         const intro = this.add.video(0, 0, 'intro').setOrigin(0, 0);
         intro.play();
+
     }
 
 }

@@ -9,6 +9,7 @@
 body {
   background-color: grey;
   color: white;
+  overflow: hidden;
 }
 
 #building-template {

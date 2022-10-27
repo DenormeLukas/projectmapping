@@ -19,6 +19,7 @@ const config = {
 
 const game = new Phaser.Game(config);
 
+
 game.scene.add('Intro', intro);
 game.scene.start('Intro');
 
@@ -36,15 +37,15 @@ eventsCenter.on('playOutro', function () {
   game.scene.start('Outro');
 });
 
-function restartGame() {
+// function restartGame() {
 
-  this.registry.destroy(); // destroy registry
-  this.events.off(); // disable all active events
-  this.scene.restart(); // restart current scene
+//   this.registry.destroy(); // destroy registry
+//   this.events.off(); // disable all active events
+//   this.scene.restart(); // restart current scene
 
-}
+// }
 
-eventsCenter.on('restart', restartGame);
+// eventsCenter.on('restart', restartGame);
 
 
 
