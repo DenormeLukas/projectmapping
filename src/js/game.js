@@ -565,6 +565,7 @@ class Game extends Phaser.Scene {
         //     light.color._rgb[1] = g;
         //     light.color._rgb[2] = b;
         // });
+
     }
 }
 
