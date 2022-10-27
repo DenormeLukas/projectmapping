@@ -3,6 +3,7 @@ let window2;
 let light;
 let offsets = [];
 let arrowKeys;
+let once = false;
 
 //Frames
 let lightFrames = [];
@@ -239,10 +240,19 @@ class Game extends Phaser.Scene {
         }
 
         // Window 1
+
         if (this.input.mousePointer.x > 80 && this.input.mousePointer.x < 185 &&
             this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
             if (sprite.x > 80 && sprite.x < 185) {
-                window2.play('window2Animation');
+                if (!once) {
+                    window2.play('window2Animation');
+                    once = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 5000);
+                }
+
             }
         }
 
