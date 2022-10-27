@@ -356,10 +356,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 80 && sprite.x < 185) {
                 if (!once) {
                     window1.play('window1Animation');
+                    once = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once = true;
                     }, 6000);
                     amount++;
                 }
@@ -381,10 +381,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 280 && sprite.x < 385) {
                 if (!once2) {
                     window2.play('window6Animation');
+                    once2 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once2 = true;
                     }, 6000);
                     amount++;
                 }
@@ -407,10 +407,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 477 && sprite.x < 582) {
                 if (!once3) {
                     window3.play('window3Animation');
+                    once3 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once3 = true;
                     }, 5000);
                     amount++;
                 }
@@ -433,10 +433,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 700 && sprite.x < 805) {
                 if (!once4) {
                     window4.play('window6Animation');
+                    once4 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once4 = true;
                     }, 6000);
                     amount++;
                 }
@@ -459,10 +459,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 1120 && sprite.x < 1225) {
                 if (!once5) {
                     window5.play('window5Animation');
+                    once5 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once5 = true;
                     }, 6000);
                     amount++;
                 }
@@ -485,10 +485,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 1335 && sprite.x < 1440) {
                 if (!once6) {
                     window6.play('window6Animation');
+                    once6 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once6 = true;
                     }, 6000);
                     amount++;
                 }
@@ -511,10 +511,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 1535 && sprite.x < 1640) {
                 if (!once7) {
                     window7.play('window2Animation');
+                    once7 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once7 = true;
                     }, 3000);
                     amount++;
                 }
@@ -537,10 +537,10 @@ class Game extends Phaser.Scene {
             if (sprite.x > 1738 && sprite.x < 1843) {
                 if (!once8) {
                     window8.play('window4Animation');
+                    once8 = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true;
-                        once8 = true;
                     }, 6000);
                     amount++;
                 }
