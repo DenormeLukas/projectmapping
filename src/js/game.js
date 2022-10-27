@@ -2,7 +2,8 @@ let sprite;
 let light;
 let offsets = [];
 let arrowKeys;
-let frames = [];
+let lightFrames = [];
+let window1Frames = [];
 
 let count = 8;
 let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
@@ -38,7 +39,14 @@ class Game extends Phaser.Scene {
 
         for (let i = 0; i <= 143; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('frame' + i, 'assets/window1-sequence/windowbig_' + nr + '.png');
+            this.load.image('window1frame' + i, 'assets/window1-sequence/windowbig_' + nr + '.png');
+        }
+
+        //Loop Top
+
+        for (let i = 0; i <= 226; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('lightframe' + i, 'assets/lights/lights_' + nr + '.png');
         }
 
     }
@@ -49,24 +57,46 @@ class Game extends Phaser.Scene {
         //Background-image
         const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
 
+        //Window 1
+
         for (let i = 0; i <= 143; i++) {
 
-            let temp = { key: 'frame' + i };
-            frames.push(temp);
+            let temp = { key: 'window1frame' + i };
+            window1Frames.push(temp);
 
         }
 
         this.anims.create({
-            key: 'windowAnimation',
-            frames: frames,
+            key: 'window1Animation',
+            frames: window1Frames,
             frameRate: 10,
             repeat: -1
         });
 
-        //Window 1
-        const window1 = this.add.sprite(500, 500, 'frame0').play('windowAnimation');
+        // const window1 = this.add.sprite(500, 500, 'window1frame0').play('window1Animation');
 
         // window1.play('windowAnimation');
+
+
+        //Lights up top
+
+        for (let i = 0; i <= 226; i++) {
+
+            let temp = { key: 'lightframe' + i };
+            lightFrames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'lightAnimation',
+            frames: lightFrames,
+            frameRate: 25,
+            repeat: -1
+        });
+
+        //Lights top
+        const lights = this.add.sprite(0, 0, 'lightframe0').setOrigin(0, 0).play('lightAnimation');
+
 
         //Shadowman
         sprite = this.physics.add.sprite(100, 965, "shadow");
@@ -149,11 +179,6 @@ class Game extends Phaser.Scene {
 
     }
 
-    function() {
-        console.log("testing");
-        // countArr.push(itemArr);
-    }
-
     update() {
 
         let index = 0;
@@ -174,17 +199,6 @@ class Game extends Phaser.Scene {
             sprite.flipX = false;
         } else if (this.input.mousePointer.x < sprite.x) {
             sprite.flipX = true;
-        }
-
-        for (let i = 0; i < count; i++) {
-            if (this.input.mousePointer.x > xShow[i] && this.input.mousePointer.x < xEnd[i] &&
-                this.input.mousePointer.y > 725 && this.input.mousePointer.y < 960) {
-                if (sprite.x > xShow[i] && sprite.x < xEnd[i]) {
-                    let rTest = this.add.rectangle(xStart[i], 847.5, 104.5, 237.5, colors[i]);
-                    this.events.once('test', this.function);
-                    this.events.emit('test');
-                }
-            }
         }
 
         // Verdere interactie
