@@ -1,14 +1,20 @@
 let sprite;
-let window2;
+let window1, window2, window3, window4, window5, window6, window7, window8;
 let light;
 let offsets = [];
 let arrowKeys;
-let once = false;
+let once, once2, once3, once4, once5, once6, once7, once8 = false;
+
+let amount = 0;
 
 //Frames
 let lightFrames = [];
 let window1Frames = [];
 let window2Frames = [];
+let window3Frames = [];
+let window4Frames = [];
+let window5Frames = [];
+let window6Frames = [];
 
 let count = 8;
 let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
@@ -42,16 +48,44 @@ class Game extends Phaser.Scene {
 
         //Window 1
 
-        for (let i = 0; i <= 143; i++) {
+        for (let i = 0; i <= 129; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window1frame' + i, 'assets/window1-sequence/windowbig_' + nr + '.png');
+            this.load.image('window1frame' + i, 'assets/window1-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Window 2
 
-        for (let i = 0; i <= 261; i++) {
+        for (let i = 0; i <= 72; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window2frame' + i, 'assets/window2-sequence/poesje _' + nr + '.png');
+            this.load.image('window2frame' + i, 'assets/window2-sequence/bats _' + nr + '.png');
+        }
+
+        //Window 3
+
+        for (let i = 0; i <= 128; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('window3frame' + i, 'assets/window3-sequence/spider _' + nr + '.png');
+        }
+
+        //Window 4
+
+        for (let i = 0; i <= 148; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('window4frame' + i, 'assets/window4-sequence/witch _' + nr + '.png');
+        }
+
+        //Window 5
+
+        for (let i = 0; i <= 150; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('window5frame' + i, 'assets/window5-sequence/spook_' + nr + '.png');
+        }
+
+        //Window 6
+
+        for (let i = 0; i <= 147; i++) {
+            let nr = `${i}`.padStart(5, '0')
+            this.load.image('window6frame' + i, 'assets/window6-sequence/man_' + nr + '.png');
         }
 
         //Loop Top
@@ -71,7 +105,7 @@ class Game extends Phaser.Scene {
 
         //Window 1
 
-        for (let i = 0; i <= 143; i++) {
+        for (let i = 0; i <= 129; i++) {
 
             let temp = { key: 'window1frame' + i };
             window1Frames.push(temp);
@@ -82,16 +116,14 @@ class Game extends Phaser.Scene {
             key: 'window1Animation',
             frames: window1Frames,
             frameRate: 25,
-            repeat: -1
+            repeat: 0
         });
 
-        // const window1 = this.add.sprite(500, 500, 'window1frame0').play('window1Animation');
-
-        // window1.play('windowAnimation');
+        window1 = this.add.sprite(130, 845, 'window1frame0');
 
         //Window 2
 
-        for (let i = 0; i <= 261; i++) {
+        for (let i = 0; i <= 72; i++) {
 
             let temp = { key: 'window2frame' + i };
             window2Frames.push(temp);
@@ -105,7 +137,85 @@ class Game extends Phaser.Scene {
             repeat: 0
         });
 
-        window2 = this.add.sprite(130, 845, 'window2frame0');
+        window2 = this.add.sprite(330, 845, 'window6frame0');
+
+        //Window 3
+
+        for (let i = 0; i <= 128; i++) {
+
+            let temp = { key: 'window3frame' + i };
+            window3Frames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'window3Animation',
+            frames: window3Frames,
+            frameRate: 25,
+            repeat: 0
+        });
+
+        window3 = this.add.sprite(530, 845, 'window3frame0');
+
+        //Window 4
+
+        for (let i = 0; i <= 148; i++) {
+
+            let temp = { key: 'window4frame' + i };
+            window4Frames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'window4Animation',
+            frames: window4Frames,
+            frameRate: 25,
+            repeat: 0
+        });
+
+        window4 = this.add.sprite(750, 845, 'window6frame0');
+
+        //Window 5
+
+        for (let i = 0; i <= 150; i++) {
+
+            let temp = { key: 'window5frame' + i };
+            window5Frames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'window5Animation',
+            frames: window5Frames,
+            frameRate: 25,
+            repeat: 0
+        });
+
+        window5 = this.add.sprite(1168, 845, 'window5frame0');
+
+        //Window 6
+
+        for (let i = 0; i <= 147; i++) {
+
+            let temp = { key: 'window6frame' + i };
+            window6Frames.push(temp);
+
+        }
+
+        this.anims.create({
+            key: 'window6Animation',
+            frames: window6Frames,
+            frameRate: 25,
+            repeat: 0
+        });
+
+        window6 = this.add.sprite(1387, 845, 'window6frame0');
+
+        window7 = this.add.sprite(1590, 845, 'window2frame0');
+
+        window8 = this.add.sprite(1790, 845, 'window4frame0');
+
+
 
         //Lights up top
 
@@ -128,8 +238,8 @@ class Game extends Phaser.Scene {
 
 
         //Shadowman
-        sprite = this.physics.add.sprite(100, 965, "shadow");
-        sprite.scale = 0.75;
+        sprite = this.physics.add.sprite(100, 955, "shadow");
+        sprite.scale = 0.85;
 
         const config = {
             key: "shadowAnimation",
@@ -222,7 +332,7 @@ class Game extends Phaser.Scene {
         });
 
         //Move shadow to cursor, 150 speed
-        this.physics.moveTo(sprite, this.input.mousePointer.x, 965, 150);
+        this.physics.moveTo(sprite, this.input.mousePointer.x, 955, 150);
 
         if (this.input.mousePointer.x > sprite.x) {
             sprite.flipX = false;
@@ -245,12 +355,139 @@ class Game extends Phaser.Scene {
             this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
             if (sprite.x > 80 && sprite.x < 185) {
                 if (!once) {
-                    window2.play('window2Animation');
+                    window1.play('window1Animation');
                     once = true;
                     sprite.visible = false;
                     setTimeout(function () {
                         sprite.visible = true
+                    }, 6000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 2
+
+        if (this.input.mousePointer.x > 280 && this.input.mousePointer.x < 385 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 280 && sprite.x < 385) {
+                if (!once2) {
+                    window2.play('window6Animation');
+                    once2 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 3000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 3
+
+        if (this.input.mousePointer.x > 477 && this.input.mousePointer.x < 582 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 477 && sprite.x < 582) {
+                if (!once3) {
+                    window3.play('window3Animation');
+                    once3 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
                     }, 5000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 4
+
+        if (this.input.mousePointer.x > 700 && this.input.mousePointer.x < 805 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 700 && sprite.x < 805) {
+                if (!once4) {
+                    window4.play('window6Animation');
+                    once4 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 6000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 5
+
+        if (this.input.mousePointer.x > 1120 && this.input.mousePointer.x < 1225 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 1120 && sprite.x < 1225) {
+                if (!once5) {
+                    window5.play('window5Animation');
+                    once5 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 6000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 6
+
+        if (this.input.mousePointer.x > 1335 && this.input.mousePointer.x < 1440 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 1335 && sprite.x < 1440) {
+                if (!once6) {
+                    window6.play('window6Animation');
+                    once6 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 6000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 7
+
+        if (this.input.mousePointer.x > 1535 && this.input.mousePointer.x < 1640 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 1535 && sprite.x < 1640) {
+                if (!once7) {
+                    window7.play('window2Animation');
+                    once7 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 6000);
+                    amount++;
+                }
+
+            }
+        }
+
+        // Window 8
+
+        if (this.input.mousePointer.x > 1738 && this.input.mousePointer.x < 1843 &&
+            this.input.mousePointer.y > 750 && this.input.mousePointer.y < 960) {
+            if (sprite.x > 1738 && sprite.x < 1843) {
+                if (!once8) {
+                    window8.play('window4Animation');
+                    once8 = true;
+                    sprite.visible = false;
+                    setTimeout(function () {
+                        sprite.visible = true
+                    }, 6000);
+                    amount++;
                 }
 
             }
