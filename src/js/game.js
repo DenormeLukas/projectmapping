@@ -365,7 +365,7 @@ class Game extends Phaser.Scene {
                 }
             }
         }
-        if (sprite.x > 80 && sprite.x < 185) {
+        if (sprite.x > 50 && sprite.x < 215) {
             if (once) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -391,7 +391,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 280 && sprite.x < 385) {
+        if (sprite.x > 250 && sprite.x < 415) {
             if (once2) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -417,7 +417,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 477 && sprite.x < 582) {
+        if (sprite.x > 447 && sprite.x < 612) {
             if (once3) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -443,7 +443,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 700 && sprite.x < 805) {
+        if (sprite.x > 670 && sprite.x < 835) {
             if (once4) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -469,7 +469,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 1120 && sprite.x < 1225) {
+        if (sprite.x > 1090 && sprite.x < 1255) {
             if (once5) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -495,7 +495,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 1335 && sprite.x < 1440) {
+        if (sprite.x > 1305 && sprite.x < 1470) {
             if (once6) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -521,7 +521,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 1535 && sprite.x < 1640) {
+        if (sprite.x > 1505 && sprite.x < 1670) {
             if (once7) {
                 sprite.visible = false;
                 setTimeout(function () {
@@ -547,7 +547,7 @@ class Game extends Phaser.Scene {
 
             }
         }
-        if (sprite.x > 1738 && sprite.x < 1843) {
+        if (sprite.x > 1708 && sprite.x < 1873) {
             if (once8) {
                 sprite.visible = false;
                 setTimeout(function () {
