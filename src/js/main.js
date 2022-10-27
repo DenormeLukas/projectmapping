@@ -1,11 +1,12 @@
 import Phaser from 'phaser';
 import Intro from './intro';
+import Outro from './outro';
 import Game from './game';
+import eventsCenter from './EventsCenter'
 
 const intro = new Intro();
+const outro = new Outro();
 const game2 = new Game();
-
-let amount = 0;
 
 const config = {
   type: Phaser.AUTO,
@@ -28,5 +29,10 @@ function startGame() {
 
 }
 
-setTimeout(startGame, 9000);
+eventsCenter.on('playOutro', function () {
+  game.scene.add('Outro', outro);
+  game.scene.start('Outro');
+});
+
+setTimeout(startGame, 500);
 

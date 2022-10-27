@@ -1,3 +1,5 @@
+import eventsCenter from './EventsCenter'
+
 let sprite;
 let window1, window2, window3, window4, window5, window6, window7, window8;
 let light;
@@ -12,6 +14,8 @@ let window3Frames = [];
 let window4Frames = [];
 let window5Frames = [];
 let window6Frames = [];
+
+let amount = 0;
 
 let count = 8;
 let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
@@ -562,6 +566,13 @@ class Game extends Phaser.Scene {
         //     light.color._rgb[1] = g;
         //     light.color._rgb[2] = b;
         // });
+
+        if (amount == 8) {
+            setTimeout(function () {
+                eventsCenter.emit('playOutro', true);
+                amount = 0;
+            }, 7000);
+        }
 
     }
 }
