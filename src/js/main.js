@@ -19,7 +19,6 @@ const game = new Phaser.Game(config);
 game.scene.add('Intro', intro);
 game.scene.start('Intro');
 
-
 function startGame() {
 
   game.scene.add('Game', game2);
@@ -27,5 +26,5 @@ function startGame() {
 
 }
 
-setTimeout(startGame, 8500);
+setTimeout(startGame, 9000);
 
