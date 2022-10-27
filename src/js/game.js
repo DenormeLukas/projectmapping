@@ -4,6 +4,14 @@ let offsets = [];
 let arrowKeys;
 let frames = [];
 
+let count = 8;
+let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
+let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
+let xEnd = [185, 385, 582, 805, 1225, 1440, 1640, 1843];
+let colors = [0xff0000, 0x00ff00, 0x0000ff, 0xff00f0, 0x0fff00, 0x00ffff, 0xff00ff, 0x6666ff];
+let countArr = [];
+let itemArr = 1;
+
 class Game extends Phaser.Scene {
 
     constructor() {
@@ -141,6 +149,10 @@ class Game extends Phaser.Scene {
 
     }
 
+    function() {
+        console.log("testing");
+        // countArr.push(itemArr);
+    }
 
     update() {
 
@@ -164,17 +176,13 @@ class Game extends Phaser.Scene {
             sprite.flipX = true;
         }
 
-        let count = 8;
-        let xStart = [132.5, 332.5, 529.5, 752.5, 1172.5, 1387.5, 1587.5, 1790.5];
-        let xShow = [80, 280, 477, 700, 1120, 1335, 1535, 1738];
-        let xEnd = [185, 385, 582, 805, 1225, 1440, 1640, 1843];
-        let colors = [0xff0000, 0x00ff00, 0x0000ff, 0xff00f0, 0x0fff00, 0x00ffff, 0xff00ff, 0x6666ff];
-
         for (let i = 0; i < count; i++) {
             if (this.input.mousePointer.x > xShow[i] && this.input.mousePointer.x < xEnd[i] &&
                 this.input.mousePointer.y > 725 && this.input.mousePointer.y < 960) {
                 if (sprite.x > xShow[i] && sprite.x < xEnd[i]) {
                     let rTest = this.add.rectangle(xStart[i], 847.5, 104.5, 237.5, colors[i]);
+                    this.events.once('test', this.function);
+                    this.events.emit('test');
                 }
             }
         }
@@ -189,14 +197,14 @@ class Game extends Phaser.Scene {
         }
 
         // changes colors on scroll --- maybe handy --- maybe not
-        this.input.on('wheel', function (color) {
-            let r = Math.floor(Math.random() * 4);
-            let g = Math.floor(Math.random() * 4);
-            let b = Math.floor(Math.random() * 4);
-            light.color._rgb[0] = r;
-            light.color._rgb[1] = g;
-            light.color._rgb[2] = b;
-        });
+        // this.input.on('wheel', function (color) {
+        //     let r = Math.floor(Math.random() * 4);
+        //     let g = Math.floor(Math.random() * 4);
+        //     let b = Math.floor(Math.random() * 4);
+        //     light.color._rgb[0] = r;
+        //     light.color._rgb[1] = g;
+        //     light.color._rgb[2] = b;
+        // });
     }
 }
 
