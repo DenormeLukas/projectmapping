@@ -6,6 +6,7 @@ let light;
 let offsets = [];
 let arrowKeys;
 let once, once2, once3, once4, once5, once6, once7, once8 = false;
+let onceOutro = false;
 //Frames
 let lightFrames = [];
 let window1Frames = [];
@@ -568,11 +569,15 @@ class Game extends Phaser.Scene {
         // });
 
         if (amount == 8) {
-            setTimeout(function () {
-                eventsCenter.emit('playOutro', true);
-                amount = 0;
-            }, 7000);
+            if (!onceOutro) {
+                onceOutro = true;
+                setTimeout(function () {
+                    eventsCenter.emit('playOutro', true);
+                    amount = 0;
+                }, 7000);
+            }
         }
+
 
     }
 }
