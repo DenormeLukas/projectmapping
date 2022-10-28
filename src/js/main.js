@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import Intro from './intro';
 import Outro from './outro';
 import Game from './game';
-import eventsCenter from './EventsCenter'
+import eventsCenter from './EventsCenter';
 
 const intro = new Intro();
 const outro = new Outro();
@@ -24,18 +24,16 @@ game.scene.add('Intro', intro);
 game.scene.start('Intro');
 
 function startGame() {
-
   game.scene.add('Game', game2);
   game.scene.start('Game');
-
 }
 
 // start het spel als hij oke krijgt van intro
-// eventsCenter.on('startGame', function () {
-//   setTimeout(startGame, 500);
-// });
+eventsCenter.on('startGame', function () {
+  setTimeout(startGame, 500);
+});
 
-setTimeout(startGame, 500);
+// setTimeout(startGame, 500);
 
 eventsCenter.on('playOutro', function () {
   game.scene.add('Outro', outro);

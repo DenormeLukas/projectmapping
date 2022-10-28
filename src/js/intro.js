@@ -1,4 +1,5 @@
 import eventsCenter from './EventsCenter';
+
 let onceIntro = false;
 let intro;
 
@@ -22,14 +23,14 @@ class Intro extends Phaser.Scene {
 
     // Stuurt signaal naar main
     // Dacht misschien is dit beter voor de loop, maar werkt niet
-    // update() {
-    //     if (intro.getProgress() === 1) {
-    //         if (!onceIntro) {
-    //             onceIntro = true;
-    //             eventsCenter.emit('startGame', true);
-    //         }
-    //     }
-    // }
+    update() {
+        if (intro.getProgress() === 1) {
+            if (!onceIntro) {
+                onceIntro = true;
+                eventsCenter.emit('startGame', true);
+            }
+        }
+    }
 
 }
 
