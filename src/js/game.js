@@ -59,8 +59,6 @@ class Game extends Phaser.Scene {
         this.window5Frames = [];
         this.window6Frames = [];
 
-        //Background-image
-        const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
 
         //Window 1
 
