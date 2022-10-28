@@ -46,6 +46,9 @@ eventsCenter.on('playOutro', function () {
 // }
 
 // eventsCenter.on('restart', restartGame);
+eventsCenter.on('restart', function () {
+  console.log("restart");
+})
 
 
 

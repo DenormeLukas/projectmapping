@@ -1,4 +1,7 @@
-import eventsCenter from './EventsCenter'
+import eventsCenter from './EventsCenter';
+
+let outro;
+let onceOutro = false;
 
 class Outro extends Phaser.Scene {
 
@@ -11,13 +14,23 @@ class Outro extends Phaser.Scene {
     }
 
     create() {
-        const outro = this.add.video(0, 0, 'outro').setOrigin(0, 0);
+        outro = this.add.video(0, 0, 'outro').setOrigin(0, 0);
         outro.play();
 
         // if (outro.getDuration() == outro.getProgress()) {
         //     eventsCenter.emit('restart', true);
         // }
+        // // eventsCenter.emit('restart', true);
 
+    }
+
+    update() {
+        if (outro.getProgress() === 1) {
+            if (!onceOutro) {
+                onceOutro = true;
+                eventsCenter.emit('restart', true);
+            }
+        }
     }
 
 }

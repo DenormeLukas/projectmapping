@@ -1,23 +1,22 @@
 @import url('normalize.css');
 
 * {
-
     cursor: none;
-
 }
 
 body {
   background-color: grey;
   color: white;
   overflow: hidden;
+  cursor: none;
 }
 
 #building-template {
-  /* display: none; */
   z-index: 2;
   position: absolute;
   top: 0;
   left: 0;
   width: 1920px;
   height: 1080px;
+  cursor: none;
 }
