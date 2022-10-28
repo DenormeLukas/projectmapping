@@ -35,35 +35,35 @@ class Intro extends Phaser.Scene {
 
         for (let i = 0; i <= 72; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window2frame' + i, 'assets/window2-sequence/bats _' + nr + '.png');
+            this.load.image('window2frame' + i, 'assets/window2-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Window 3
 
         for (let i = 0; i <= 128; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window3frame' + i, 'assets/window3-sequence/spider _' + nr + '.png');
+            this.load.image('window3frame' + i, 'assets/window3-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Window 4
 
         for (let i = 0; i <= 148; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window4frame' + i, 'assets/window4-sequence/witch _' + nr + '.png');
+            this.load.image('window4frame' + i, 'assets/window4-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Window 5
 
         for (let i = 0; i <= 150; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window5frame' + i, 'assets/window5-sequence/spook_' + nr + '.png');
+            this.load.image('window5frame' + i, 'assets/window5-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Window 6
 
         for (let i = 0; i <= 147; i++) {
             let nr = `${i}`.padStart(5, '0')
-            this.load.image('window6frame' + i, 'assets/window6-sequence/man_' + nr + '.png');
+            this.load.image('window6frame' + i, 'assets/window6-sequence/window aniamtion _' + nr + '.png');
         }
 
         //Loop Top
