@@ -1,12 +1,15 @@
 import Phaser from 'phaser';
+import Boot from './boot';
 import Intro from './intro';
 import Outro from './outro';
 import Game from './game';
 import eventsCenter from './EventsCenter';
 
+const boot = new Boot();
 const intro = new Intro();
 const outro = new Outro();
 const game2 = new Game();
+let startGameOnce = false;
 
 const config = {
   type: Phaser.AUTO,
@@ -19,26 +22,12 @@ const config = {
 
 const game = new Phaser.Game(config);
 
-
+game.scene.add('Boot', boot);
 game.scene.add('Intro', intro);
-game.scene.start('Intro');
+game.scene.add('Game', game2);
+game.scene.add('Outro', outro);
 
-function startGame() {
-  game.scene.add('Game', game2);
-  game.scene.start('Game');
-}
-
-// start het spel als hij oke krijgt van intro
-eventsCenter.on('startGame', function () {
-  setTimeout(startGame, 500);
-});
-
-// setTimeout(startGame, 500);
-
-eventsCenter.on('playOutro', function () {
-  game.scene.add('Outro', outro);
-  game.scene.start('Outro');
-});
+game.scene.start('Boot');
 
 // function restartGame() {
 
@@ -49,14 +38,6 @@ eventsCenter.on('playOutro', function () {
 // }
 
 // eventsCenter.on('restart', restartGame);
-eventsCenter.on('restart', function () {
-  console.log("Het spel is gedaan");
-  game.scene.remove('Outro');
-  game.scene.remove('Game');
-  game.scene.start('Intro');
-})
-
-
 
 
 

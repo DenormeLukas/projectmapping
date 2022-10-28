@@ -9,11 +9,8 @@ class Outro extends Phaser.Scene {
         super({ key: 'Outro' });
     }
 
-    preload() {
-        this.load.video('outro', 'assets/outro.mp4', 'loadeddata', false, false);
-    }
-
     create() {
+        this.sys.events.on('shutdown', this.shutdown);
         outro = this.add.video(0, 0, 'outro').setOrigin(0, 0);
         outro.play();
 
@@ -25,14 +22,19 @@ class Outro extends Phaser.Scene {
     }
 
     update() {
+        // console.log('[outro] update');
+
         if (outro.getProgress() === 1) {
-            if (!onceOutro) {
-                onceOutro = true;
-                eventsCenter.emit('restart', true);
-            }
+            this.game.scene.stop('Outro');
+            this.game.scene.start('Intro');
         }
     }
 
+    shutdown() {
+        console.log('Outro shutdown');
+    }
 }
+
+onceOutro = false;
 
 export default Outro;
