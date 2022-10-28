@@ -59,6 +59,8 @@ class Game extends Phaser.Scene {
         this.window5Frames = [];
         this.window6Frames = [];
 
+        //Background-image
+        const image = this.add.image(0, 0, 'background').setOrigin(0, 0).setPipeline('Light2D');
 
         //Window 1
 
@@ -219,7 +221,7 @@ class Game extends Phaser.Scene {
         this.input.mouse.disableContextMenu();
 
         //Lights
-        this.light = this.lights.addLight(0, 0, 300).setScrollFactor(0.0).setIntensity(4);
+        this.light = this.lights.addLight(0, 0, 300).setScrollFactor(0.0).setIntensity(8);
 
         this.lights.enable().setAmbientColor(0x555555);
 
@@ -232,12 +234,12 @@ class Game extends Phaser.Scene {
 
         // Makes this.light intensity stronger when pushing a button
         this.input.on('pointerdown', function () {
-            this.light.setIntensity(8);
+            this.light.setIntensity(10);
         }, this);
 
         // Makes this.light intensity weaker when pushing a button
         this.input.on('pointerup', function () {
-            this.light.setIntensity(4);
+            this.light.setIntensity(8);
         }, this);
 
         this.arrowKeys = this.input.keyboard.createCursorKeys();
