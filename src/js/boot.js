@@ -16,6 +16,14 @@ class Intro extends Phaser.Scene {
         //Neon image
         this.load.image('neon', 'assets/neon.png');
 
+        //Sounds
+        this.load.audio("bat", ["assets/batSound.mp3"]);
+        this.load.audio("cat", ["assets/catSound.mp3"]);
+        this.load.audio("spider", ["assets/spinSound.mp3"]);
+        this.load.audio("ghost", ["assets/spokie.mp3"]);
+        this.load.audio("witch", ["assets/heksie.mp3"]);
+        this.load.audio("man", ["assets/manSound.mp3"]);
+
         //Sprite
         // this.load.image("shadow", 'assets/spritesheet.png');
 

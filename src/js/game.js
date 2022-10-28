@@ -316,6 +316,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 80 && this.sprite.x < 185) {
                 if (!this.once) {
                     this.window1.play('window1Animation');
+                    const cat = this.sound.add("cat", { loop: false });
+                    cat.play();
                     this.once = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -341,6 +343,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 280 && this.sprite.x < 385) {
                 if (!this.once2) {
                     this.window2.play('window6Animation');
+                    const man = this.sound.add("man", { loop: false });
+                    man.play();
                     this.once2 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -367,6 +371,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 477 && this.sprite.x < 582) {
                 if (!this.once3) {
                     this.window3.play('window3Animation');
+                    const spider = this.sound.add("spider", { loop: false });
+                    spider.play();
                     this.once3 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -393,6 +399,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 700 && this.sprite.x < 805) {
                 if (!this.once4) {
                     this.window4.play('window6Animation');
+                    const man = this.sound.add("man", { loop: false });
+                    man.play();
                     this.once4 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -419,6 +427,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 1120 && this.sprite.x < 1225) {
                 if (!this.once5) {
                     this.window5.play('window5Animation');
+                    const ghost = this.sound.add("ghost", { loop: false });
+                    ghost.play();
                     this.once5 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -445,6 +455,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 1335 && this.sprite.x < 1440) {
                 if (!this.once6) {
                     this.window6.play('window6Animation');
+                    const man = this.sound.add("man", { loop: false });
+                    man.play();
                     this.once6 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -471,6 +483,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 1535 && this.sprite.x < 1640) {
                 if (!this.once7) {
                     this.window7.play('window2Animation');
+                    const bat = this.sound.add("bat", { loop: false });
+                    bat.play();
                     this.once7 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
@@ -497,6 +511,8 @@ class Game extends Phaser.Scene {
             if (this.sprite.x > 1738 && this.sprite.x < 1843) {
                 if (!this.once8) {
                     this.window8.play('window4Animation');
+                    const witch = this.sound.add("witch", { loop: false });
+                    witch.play();
                     this.once8 = true;
                     this.sprite.visible = false;
                     setTimeout(function () {
