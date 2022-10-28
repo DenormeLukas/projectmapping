@@ -9,6 +9,7 @@ body {
   color: white;
   overflow: hidden;
   cursor: none;
+    filter: saturate(2.5);
 }
 
 #building-template {
