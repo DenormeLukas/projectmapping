@@ -1,3 +1,7 @@
+import eventsCenter from './EventsCenter';
+let onceIntro = false;
+let intro;
+
 class Intro extends Phaser.Scene {
 
     constructor() {
@@ -10,10 +14,22 @@ class Intro extends Phaser.Scene {
 
     create() {
 
-        const intro = this.add.video(0, 0, 'intro').setOrigin(0, 0);
+        intro = this.add.video(0, 0, 'intro').setOrigin(0, 0);
         intro.play();
+        console.log("het spel begint");
 
     }
+
+    // Stuurt signaal naar main
+    // Dacht misschien is dit beter voor de loop, maar werkt niet
+    // update() {
+    //     if (intro.getProgress() === 1) {
+    //         if (!onceIntro) {
+    //             onceIntro = true;
+    //             eventsCenter.emit('startGame', true);
+    //         }
+    //     }
+    // }
 
 }
 

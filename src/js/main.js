@@ -30,6 +30,11 @@ function startGame() {
 
 }
 
+// start het spel als hij oke krijgt van intro
+// eventsCenter.on('startGame', function () {
+//   setTimeout(startGame, 500);
+// });
+
 setTimeout(startGame, 500);
 
 eventsCenter.on('playOutro', function () {
@@ -47,7 +52,10 @@ eventsCenter.on('playOutro', function () {
 
 // eventsCenter.on('restart', restartGame);
 eventsCenter.on('restart', function () {
-  console.log("restart");
+  console.log("Het spel is gedaan");
+  game.scene.remove('Outro');
+  game.scene.remove('Game');
+  game.scene.start('Intro');
 })
 
 
